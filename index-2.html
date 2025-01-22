@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>uzdevumi</h1>
+    <input type="text" id="txt">
+    <button>pievienot</button>
+    <ul></ul>
+
+
+    <script>
+        const btn = document.querySelector("button");
+        const ul = document.querySelector("ul");
+        const txt = document.getElementById("txt")
+
+        btn.addEventListener("click", function () {
+            if (txt.value !== "") {
+                const li = document.createElement("li");
+                li.innerHTML = txt.value
+
+                const btndelete = document.createElement("button");
+                btndelete.innerHTML = "dzēst";
+                btndelete.addEventListener("click", function () {
+                    event.target.parentNode.remove();
+                })
+                li.appendChild(btndelete);
+                ul.appendChild(li);
+                txt.value = "";
+            }
+        });
+
+        // ul.addEventListener("click", clickonul);
+
+        // function clickonul(event) {
+        //     let target = event.target;
+        //     if (event.target.dataset.action !== "delete") return;
+        //     target.parentNode.remove();
+        // }
+
+    </script>
+</body>
+
+</html>
