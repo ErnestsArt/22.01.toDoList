@@ -22,11 +22,19 @@
         btn.addEventListener("click", function () {
             if (txt.value !== "") {
                 const li = document.createElement("li");
-                li.innerHTML = `${txt.value} <button>Dzēst</button>`;
+                li.innerHTML = `${txt.value} <button data-action="delete">Dzēst</button>`;
                 ul.appendChild(li);
                 txt.value = "";
             }
         });
+
+        ul.addEventListener("click", clickonul);
+
+        function clickonul(event) {
+            let target = event.target;
+            if (event.target.dataset.action !== "delete") return;
+            target.parentNode.remove();
+        }
 
     </script>
 </body>
